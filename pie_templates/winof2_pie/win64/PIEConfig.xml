@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PIEConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ComponentTypes>
+    <ComponentType>DRVR</ComponentType>
+  </ComponentTypes>
+  <Runtime>
+    <OperatingSystem>win</OperatingSystem>
+  </Runtime>
+  <CopyRequired>0</CopyRequired>
+  <RebootRequired>0</RebootRequired>
+  <Plugins>
+    <Plugin type="0" description="Inventory" timeout="60">
+      <Startfile>MelIE.cmd</Startfile>
+      <CliToStdout>
+        <Command>MelIE.cmd i print</Command>
+      </CliToStdout>
+      <CliToFile>
+        <Command>MelIE.cmd i file</Command>
+        <Output>MelInv.xml</Output>
+      </CliToFile>
+      <Modules>
+        <Module>MelIE.cmd</Module>
+        <Module>MelInv.vbs</Module>
+      </Modules>
+    </Plugin>
+    <Plugin type="1" description="Execution" timeout="900">
+      <Startfile>DRVUpdate.exe</Startfile>
+      <CliToStdout>
+        <Command>DRVUpdate.exe -u </Command>
+      </CliToStdout>
+      <CliToFile>
+        <Command>DRVUpdate.exe -u -o exec.xml</Command>
+        <Output>exec.xml</Output>
+      </CliToFile>
+      <CliforceToStdout>
+        <Command>DRVUpdate.exe -u </Command>
+      </CliforceToStdout>
+      <CliforceToFile>
+        <Command>DRVUpdate.exe -u -o exec.xml</Command>
+        <Output>exec.xml</Output>
+      </CliforceToFile>
+      <Modules>
+        <Module>DRVUpdate.exe</Module>
+        <Module>DrvCfg64.ini</Module>
+      </Modules>
+    </Plugin>
+  </Plugins>
+  <FeatureSet>
+    <Feature name="ExtractDrivers">
+      <commandLine value="DRVUpdate.exe /de=$PATH$" valueSeperator="," />
+    </Feature>
+    <Feature name="InstallDriversOnly">
+      <commandLine value="DRVUpdate.exe /di" valueSeperator="," />
+    </Feature>
+  </FeatureSet>
+</PIEConfig>

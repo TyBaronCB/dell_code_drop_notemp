@@ -1,0 +1,40 @@
+########################################
+Important Information for Update Packages for Microsoft Windows
+########################################
+
+* Do not run other applications while executing Dell Update Packages.
+
+* Do not run storage controller update packages if the controller is in use by other applications. 
+
+  The firmware upgrade may fail if any of the RAID controllers in the system are performing an I/O background task (that is, consistency check, background initialization, rebuild, or reconstruction). Allow the background task to complete before attempting to upgrade the firmware. Patrol Read tasks will not affect a firmware upgrade.
+
+################################
+Important Information for Update Packages for Linux
+################################
+
+* Do not run other applications while executing Dell Update Packages.
+
+* If the following error occurs, "Error while loading shared libraries: libstdc++.so.5: cannot open shared object file: No such file or directory", you must install the compatibility libraries from "www.redhat.com" or from the Red Hat CD. To install the compatibility libraries, use the following command: "RPM -ih compat-libstdc++-33-3.2.3-47.3.i386.rpm"
+
+* When Update Packages stop abruptly due to a power outage or abnormal termination, perform the following steps:
+   - Remove the lock file.
+     Type the following command: rm -f /var/lock/.spsetup
+   - Run the Update Package again to reapply the update.
+
+* Do not run storage controller update packages if the controller is in use by other applications. 
+
+  The firmware upgrade may fail if any of the RAID controllers in the system are performing an I/O background task (that is, consistency check, background initialization, rebuild, or reconstruction). Allow the background task to complete before attempting to upgrade the firmware. Patrol Read tasks will not affect a firmware upgrade.
+
+* Linux systems running one or more applications that interact with SCSI devices in certain ways are known to cause a kernel panic situation. Therefore, it is recommended that you stop Server Administrator and its Storage Management Service before running storage controller firmware update packages.
+
+  To stop the Dell OpenManage(TM) Server Administrator service,
+  run "omconfig system webserver action=stop"
+
+  To start the Server Administrator service,
+  run "omconfig system webserver action=start"
+
+  To stop the Server Administrator Storage Management Service,
+  run "/etc/init.d/dataeng stop"
+
+  To start the Server Administrator Storage Management Service,
+  run "/etc/init.d/dataeng start"

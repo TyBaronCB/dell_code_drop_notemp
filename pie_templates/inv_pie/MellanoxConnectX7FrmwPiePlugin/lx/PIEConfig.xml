@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<PIEConfig SchemaVersion="1.5">
+  <ComponentTypes>
+    <ComponentType>FRMW</ComponentType>
+  </ComponentTypes>
+	<Runtime>
+		<OperatingSystem>lx</OperatingSystem>
+	</Runtime>
+	<RebootRequired>1</RebootRequired>
+	<RedfishRollbackRequired>1</RedfishRollbackRequired>
+	<Plugins>
+		<Plugin type="0" description="Inventory" timeout="1620">
+			<Startfile>mlxinvcollector</Startfile>
+			<CliToStdout>
+				<Command>mlxinvcollector --xml --ffv --lookup psid_lookup.lst</Command>
+			</CliToStdout>
+			<CliToFile>
+				<Command>mlxinvcollector --xml --ffv --lookup psid_lookup.lst -o inv.xml</Command>
+				<Output>inv.xml</Output>
+			</CliToFile>
+			<Modules>
+				<Module>mlxinvcollector</Module>
+			</Modules>
+		</Plugin>
+		<Plugin type="1" description="Execution" timeout="2160">
+			<Startfile>mlxfwupdater</Startfile>
+			<CliToStdout>
+				<Command>mlxfwupdater -u -y --xml --ffv --lookup psid_lookup.lst</Command>
+			</CliToStdout>
+			<CliToFile>
+				<Command>mlxfwupdater -u -y --xml --ffv --lookup psid_lookup.lst -o update.xml</Command>
+				<Output>update.xml</Output>
+			</CliToFile>
+			<CliforceToStdout>
+				<Command>mlxfwupdater -u -y --xml --ffv --lookup psid_lookup.lst --force</Command>
+			</CliforceToStdout>
+			<CliforceToFile>
+				<Command>mlxfwupdater -u -y --xml --ffv --lookup psid_lookup.lst --force -o update.xml</Command>
+				<Output>update.xml</Output>
+			</CliforceToFile>
+			<Modules>
+				<Module>mlxfwupdater</Module>
+			</Modules>
+		</Plugin>
+	</Plugins>
+	<Info identifier="769CCC6E-09A0-4CEF-8774-279E4D3748F3" folderName="Mellanox-Adapter-Firmware" />
+    <Payload version="28.39.10.02" fmpWrapperIdentifier="43ccb3ba-95b6-4f65-9200-13b71b6ad023">
+      <PayloadImages>
+        <PayloadImage id="EA680D40-8A1C-959F-D223-510A9219E8C1" filename="DEL0000000035.pldm" version="28.39.10.02" skip="false">
+          <PCIInfo deviceID="1021" subDeviceID="0040" subVendorID="15b3" vendorID="15b3" />
+          <ProtocolInformation protocolType="PLDM" />
+        </PayloadImage>
+        <PayloadImage id="C03F30A3-07E0-D907-8AC0-BE22B78FA7B1" filename="DEL0000000036.pldm" version="28.39.10.02" skip="false">
+          <PCIInfo deviceID="1021" subDeviceID="0041" subVendorID="15b3" vendorID="15b3" />
+          <ProtocolInformation protocolType="PLDM" />
+        </PayloadImage>
+		  <PayloadImage id="7EA97C05-F759-9DF5-3ECD-59F425381963" filename="DEL0000000051.pldm" version="28.39.10.02" skip="false">
+          <PCIInfo deviceID="1021" subDeviceID="0121" subVendorID="15b3" vendorID="15b3" />
+          <ProtocolInformation protocolType="PLDM" />
+        </PayloadImage>
+		  <PayloadImage id="C7C3B03C-8602-7104-76F7-988651179A67" filename="DEL0000000050.pldm" version="28.39.10.02" skip="false">
+          <PCIInfo deviceID="1021" subDeviceID="0120" subVendorID="15b3" vendorID="15b3" />
+          <ProtocolInformation protocolType="PLDM" />
+        </PayloadImage>
+      </PayloadImages>
+    </Payload>
+	<RollbackInformation rollbackIdentifier="A1027480-A2BC-4A3D-8604-605139F1A796" rollbackVolume="MAS022" fmpWrapperIdentifier="43ccb3ba-95b6-4f65-9200-13b71b6ad023" rollbackTimeout="2160" impactsTPMmeasurements="true" />
+	<FMPWrappers>
+	  <FMPWrapperInformation identifier="43ccb3ba-95b6-4f65-9200-13b71b6ad023" name="NIC" filePathName="FmpUpdateWrapper.efi" digitalSignature="false">
+        <Inventory supported="true" source="Device" />
+        <Update supported="true" rollback="true" />
+      </FMPWrapperInformation>
+    </FMPWrappers>
+</PIEConfig>

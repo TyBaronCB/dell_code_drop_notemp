@@ -1,0 +1,8 @@
+KERNEL=="sd*", ATTRS{model}=="SCRTCH", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="SECUPD", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="MAS001", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="MAS002", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="MAS101", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="MAS021", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="MAS022", OPTIONS+="last_rule"
+KERNEL=="sd*", ATTRS{model}=="MAS102", OPTIONS+="last_rule"

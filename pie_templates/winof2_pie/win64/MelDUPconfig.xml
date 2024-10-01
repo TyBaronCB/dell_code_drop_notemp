@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="yes" ?>
+<udupconfig Vendor="15b3">
+	<om_version>7.4</om_version>
+	<projectver>4.40.0</projectver>
+	<configver>1.0</configver>
+	<schemaiteration datemodified="8July13">2.0</schemaiteration>
+	<invlogname>MelInv.xml</invlogname>
+	<!--
+		<infregkey> can contain more than one registry key to read, in cases like the Broadcom NX2 driver set, where there are two VBD drivers and one NDIS driver to be concerned with.  The 'NumKeys' value must indicate the total number of keys, each key path should be seperated by a comma and one space, and the last key path must also end in a comma (no space after that comma.)  This field can be left blank for the UDUP config file, just add a space after the key name, then a forward slash, then the greater-than sign to close the tag.
+		-->
+	<infregkey OS="all" NumKeys="1">HKLM\SYSTEM\CurrentControlSet\Services\mlx5\imagepath</infregkey>
+	<umbregkey OS="all" NumKeys="1">HKLM\SOFTWARE\Dell\MUP\MLNX_WinOF2\</umbregkey>
+	<!--
+		<infregkey> and <umbregkey> 'OS' atribute values can be any one of the OSSupport types or "all".  If the OSes supported for a specific key is more than one, but less than all a new entry will be made for each OS supported even if some keys are the same for multiple OSes.
+		-->
+	<componentid>104480</componentid>
+	<enumstring>MellanoxFam</enumstring>
+	<displaystring>Mellanox WinOF-2 Driver Family</displaystring>
+	<ossupport>win2000, win200332, win200364, win200832, win200864, win201264,win2012R264</ossupport>
+	<!--
+		OS support values are these; win2000, win200332, win200364, win200832, win200864, winxp32, winxp64, winvista32, winvista64, win201264.  These are the only values currently supported.
+		-->
+	<numberdevices Total="15">
+		<device>
+			<deviceid>1013</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1014</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1015</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1016</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1017</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1018</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1019</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>101a</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>101b</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>101c</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		
+		<device>
+			<deviceid>101d</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		
+		<device>
+			<deviceid>101e</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>101f</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>1021</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+		<device>
+			<deviceid>a2d6</deviceid>
+			<subvendorid />
+			<subdeviceid />
+		</device>
+	</numberdevices>
+</udupconfig>

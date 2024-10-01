@@ -1,0 +1,9 @@
+#!/bin/sh
+./mst start > /dev/null 2>&1
+./mlxfwmanager $*
+ret=$?
+./mst stop > /dev/null 2>&1
+if [ $ret -eq 0 -o $ret -eq 254 ] ; then 
+    ./UpdRollBack
+fi
+exit $re

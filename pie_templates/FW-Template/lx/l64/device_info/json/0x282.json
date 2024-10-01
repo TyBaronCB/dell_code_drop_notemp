@@ -1,0 +1,29 @@
+{
+    "0x282": {
+        "general_info": {
+            "device_name": "ArcusE",
+            "device_type": "Retimer",
+            "vendor": "Mellanox"
+        },
+        "linkx_info": {
+            "i2c_secondary" : 72,
+            "addr_width" : 2
+        },
+        "devmon_info": {
+            "market_name": "",
+            "project_name": "arcuse",
+            "hw_rev_id": -1
+        },
+        "mtcr_icmd_info": {
+            "cmd_ptr_address": 2097152,
+            "hcr_address": 2193668,
+            "cmd_ptr_bitlen": 24,
+            "semaphore_address": 1341688,
+            "static_cfg_not_done_address": 2097168,
+            "static_cfg_not_done_offset": 0,
+            "version_bit_offset": 24,
+            "version_bitlen": 8,
+            "version_address": 2097152
+        }
+    }
+}

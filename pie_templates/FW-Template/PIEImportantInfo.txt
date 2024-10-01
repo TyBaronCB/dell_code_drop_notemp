@@ -1,0 +1,5 @@
+########################################
+Important Information for Update Packages for Microsoft Windows
+########################################
+
+* Do not run other applications while executing Dell Update Packages.

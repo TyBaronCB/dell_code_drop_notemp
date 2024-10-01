@@ -1,0 +1,12 @@
+{
+   "fw_list":[
+      "22_40_1000",
+      "26_40_1000"
+   ],
+   "linux_driver":"",
+   "lts_linux_driver":"",
+   "windows_driver1":"",
+   "windows_driver2":"",
+   "mft_version":"",
+   "arm_dpu":""
+}

@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -f /usr/bin/minit ]; then
+	./mst start &> /dev/null
+	./mlxfwmanager $*
+	ret=$?
+	./mst stop &> /dev/null
+else
+	./mlxfwmanager $*
+	ret=$?
+fi 
+exit $ret

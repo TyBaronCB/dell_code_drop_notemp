@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PIEConfig SchemaVersion="1.5">
+  <ComponentTypes>
+    <ComponentType>FRMW</ComponentType>
+  </ComponentTypes>
+	<Runtime>
+		<OperatingSystem>win</OperatingSystem>
+	</Runtime>
+	<RebootRequired>1</RebootRequired>
+	<Plugins>
+		<Plugin type="0" description="Inventory" timeout="1620">
+			<Startfile>mlxfwmanager.exe</Startfile>
+			<CliToStdout>
+				<Command>mlxfwmanager.exe --xml --ffv --lookup psid_lookup.lst</Command>
+			</CliToStdout>
+			<CliToFile>
+				<Command>mlxfwmanager.exe --xml --ffv --lookup psid_lookup.lst -o inv.xml</Command>
+				<Output>inv.xml</Output>
+			</CliToFile>
+			<Modules>
+				<Module>mlxfwmanager.exe</Module>
+			</Modules>
+		</Plugin>
+		<Plugin type="1" description="Execution" timeout="2160">
+			<Startfile>mlxfwupdater.bat</Startfile>
+			<CliToStdout>
+				<Command>mlxfwupdater.bat -u -y --xml --ffv --lookup psid_lookup.lst</Command>
+			</CliToStdout>
+			<CliToFile>
+				<Command>mlxfwupdater.bat -u -y --xml --ffv --lookup psid_lookup.lst -o update.xml</Command>
+				<Output>update.xml</Output>
+			</CliToFile>
+			<CliforceToStdout>
+				<Command>mlxfwupdater.bat -u -y --xml --ffv --lookup psid_lookup.lst --force</Command>
+			</CliforceToStdout>
+			<CliforceToFile>
+				<Command>mlxfwupdater.bat -u -y --xml --ffv --lookup psid_lookup.lst --force -o update.xml</Command>
+				<Output>update.xml</Output>
+			</CliforceToFile>
+			<Modules>
+				<Module>mlxfwupdater.bat</Module>
+			</Modules>
+		</Plugin>
+	</Plugins>
+  <Info identifier="769CCC6E-09A0-4CEF-8774-279E4D3748F3" folderName="Mellanox-Adapter-Firmware"></Info>
+  <RollbackInformation rollbackIdentifier="9995B702-080F-477B-B97D-A0D4012E8D77" rollbackVolume="MAS022" fmpWrapperIdentifier="A2AA3400-ADD7-471E-9828-ECCB0DB777EF" rollbackTimeout="2160" impactsTPMmeasurements="true" alternateRollbackIdentifier="100577"></RollbackInformation>
+  <FMPWrappers>
+    <FMPWrapperInformation identifier="A2AA3400-ADD7-471E-9828-ECCB0DB777EF" name="NIC" filePathName="FmpUpdateWrapper.efi" digitalSignature="false">
+      <Inventory supported="true" source="Device"></Inventory>
+      <Update supported="true" rollback="true"></Update>
+    </FMPWrapperInformation>
+    </FMPWrappers>
+</PIEConfig>
+
